@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apa Itu Teknologi dan Informasi?</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: white;
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    h1 {
+      color: #ffeb3b;
+    }
+
+    h2 {
+      margin-top: 30px;
+      color: #4fc3f7;
+    }
+
+    p, li {
+      font-size: 16px;
+      text-align: justify;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #ddd;
+    }
+
+    /* Overlay transparan kalau autoplay gagal */
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="overlay"></div>
+  <audio id="bgm" src="background.mp3" loop></audio>
+
+  <h1>Apa Itu Teknologi dan Informasi?</h1>
+
+  <h2>Pengertian</h2>
+  <p>
+    Teknologi dan Informasi (TI) adalah gabungan antara teknologi komputer dan telekomunikasi
+    yang digunakan untuk mengumpulkan, menyimpan, mengolah, dan menyebarkan informasi.
+    TI membantu manusia dalam mendapatkan dan menyampaikan informasi dengan cepat dan efisien.
+  </p>
+
+  <h2>Fungsi Teknologi Informasi</h2>
+  <ul>
+    <li><b>Mengumpulkan data:</b> membantu mengumpulkan informasi dari berbagai sumber.</li>
+    <li><b>Mengolah data:</b> mengubah data mentah menjadi informasi yang bermanfaat.</li>
+    <li><b>Menyimpan data:</b> menjaga informasi agar tidak hilang dan mudah diakses kembali.</li>
+    <li><b>Mengirimkan informasi:</b> mempermudah komunikasi jarak jauh melalui internet dan media digital.</li>
+  </ul>
+
+  <h2>Manfaat Teknologi Informasi</h2>
+  <p>
+    Teknologi Informasi mempermudah pekerjaan manusia di berbagai bidang, seperti pendidikan, kesehatan,
+    bisnis, dan pemerintahan. Contohnya, siswa dapat belajar secara daring, dokter dapat memeriksa pasien
+    jarak jauh, dan perusahaan dapat bekerja secara efisien dengan sistem komputerisasi.
+  </p>
+
+  <h2>Kesimpulan</h2>
+  <p>
+    Teknologi dan Informasi berperan penting dalam kehidupan modern.
+    Dengan memanfaatkan TI secara bijak, manusia dapat bekerja lebih efektif,
+    berkomunikasi lebih mudah, dan terus berinovasi untuk masa depan yang lebih baik.
+  </p>
+
+  <footer>
+    © <script>document.write(new Date().getFullYear())</script> — MALAS CODING
+  </footer>
+
+  <script>
+    const audio = document.getElementById("bgm");
+    const overlay = document.getElementById("overlay");
+    audio.volume = 0.8;
+
+    // Coba autoplay
+    window.addEventListener("load", () => {
+      audio.play().then(() => {
+        console.log("Musik berhasil diputar otomatis");
+      }).catch(() => {
+        // Kalau gagal, tampilkan overlay hitam transparan
+        overlay.style.display = "block";
+      });
+    });
+
+    // Kalau pengguna tap layar, musik mulai dan overlay hilang
+    const startMusic = () => {
+      audio.play().then(() => {
+        overlay.style.display = "none";
+      }).catch(() => {});
+    };
+
+    document.addEventListener("click", startMusic);
+    document.addEventListener("touchstart", startMusic);
+  </script>
+
+</body>
+</html>
