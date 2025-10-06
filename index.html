@@ -44,8 +44,8 @@
       color: #ddd;
     }
 
-    /* Overlay transparan kalau autoplay gagal */
-    #overlay {
+    
+    overlay {
       display: none;
       position: fixed;
       top: 0; left: 0;
@@ -101,17 +101,17 @@
     const overlay = document.getElementById("overlay");
     audio.volume = 0.8;
 
-    // Coba autoplay
+     
     window.addEventListener("load", () => {
       audio.play().then(() => {
         console.log("Musik berhasil diputar otomatis");
       }).catch(() => {
-        // Kalau gagal, tampilkan overlay hitam transparan
+        
         overlay.style.display = "block";
       });
     });
 
-    // Kalau pengguna tap layar, musik mulai dan overlay hilang
+    
     const startMusic = () => {
       audio.play().then(() => {
         overlay.style.display = "none";
